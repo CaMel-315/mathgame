@@ -120,5 +120,7 @@
     position: absolute;
     bottom: 25px;
     left: 300px;
+    font-size: 18px;
+    line-height: 55px;
 }
 

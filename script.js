@@ -145,3 +145,8 @@ let createAllCombinations = (list) =>{
 
     return result;
 }
+
+let = solveBtn = () =>{
+    findPermutations(numbers);
+    createAllCombinations((['+','-','*','/']));
+}
