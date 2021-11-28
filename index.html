@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="style.css" />
+        <script type="text/javascript" src="SOLVABLES.js"></script>
+        <script type="text/javascript" src="script.js"></script>
+    </head>
+    <body onload="initialize()">
+        <div id="container">
+            <div id="box0"  onclick="numberClicked(this)"; class="boxes showBox"></div> 
+            <div id="box1"  onclick="numberClicked(this)"; class="boxes showBox"></div>
+            <div id="box2"  onclick="numberClicked(this)"; class="boxes showBox"></div> 
+            <div id="box3"  onclick="numberClicked(this)"; class="boxes showBox"></div> 
+
+            <div id="add" onclick="operationClicked(this)"; class="buttons"><p>+</p></div>
+            <div id="subtract" onclick="operationClicked(this)"; class="buttons"><p>-</p></div>
+            <div id="multiply" onclick="operationClicked(this)"; class="buttons"><p>x</p></div>
+            <div id="divide" onclick="operationClicked(this)"; class="buttons"><p>/</p></div>
+          
+            <div id="button5" onclick="initialize()" class="buttons">SKIP</div> 
+              <!--
+            <div id="button6" onclick="highlightButtons(this)" class="buttons"><p>Add All</p></div>
+            <div id="button7" onclick="highlightButtons(this)" class="buttons"><p>Multiply All</p></div>
+            <div id="button8" onclick="highlightButtons(this)" class="buttons"><p>Go Forward</p></div>
+            -->
+        </div>
+        <p id="result"></p>
+    </body>
+</html>
