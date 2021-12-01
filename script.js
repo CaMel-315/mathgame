@@ -130,7 +130,6 @@ let findPermutations = (list) => {
     return permutationsArray;
 }
 
-//createAllCombinations(['+','-','*','/'])
 
 let createAllCombinations = (list) =>{
     let result = new Array();
@@ -147,6 +146,14 @@ let createAllCombinations = (list) =>{
 }
 
 let = solveBtn = () =>{
-    findPermutations(numbers);
-    createAllCombinations((['+','-','*','/']));
+    const array1 = findPermutations(numbers);
+    const array2 = createAllCombinations(['+','-','*','/']);
+
+        const array3 = [].concat(array1, array2);
+
+            console.log(array3);
+
+
 }
+
+
