@@ -146,7 +146,7 @@ let createAllCombinations = (list) =>{
 }
 
 let = solveBtn = () =>{ //reaname func name to solveBtnClicked
-    mergeNumbersAndOperator()
+    //mergeNumbersAndOperator()
 }
 
 mergeNumbersAndOperators = (numbersArray, opsArray) => {
@@ -154,13 +154,12 @@ mergeNumbersAndOperators = (numbersArray, opsArray) => {
     const array2 = createAllCombinations(['+','-','*','/']);//rename array2
     const array3 = new Array();//rename array3
 
-    for (let i=0; i < array1.length; i++)
+    for (let i=0; i < array1.length; i++)//forEach
     {
-        for (let j=0; j < array2.length; j++)
+        for (let j=0; j < array2.length; j++)//forEach
         {
-            array3.push(array1[i][0] + array2[j][0] + array1[i][1] + array2[j][1] + array1[i][2] + array2[j][2] + array1[i][3]);
+            array3.push([array1[i][0], array2[j][0], array1[i][1], array2[j][1], array1[i][2], array2[j][2], array1[i][3]]);
         }
-            return array3;
     }
-                console.log(array3);
+    return array3;
 }
