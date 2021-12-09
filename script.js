@@ -147,6 +147,19 @@ let createAllCombinations = (list) =>{
 
 let = solveBtnClicked = () =>{
     const numbersOpsList = mergeNumbersAndOperators();
+    let result = new Array()
+    numbersOpsList.foreach{
+        //add bracket method 1 to result;
+        //add bracket method 2
+        //add bracket method 3
+        //add bracket method 4
+        //add bracket method 5
+        ['(',4, '+', 2, '+', 6, '+', 12]
+        [4, '+', 2, '+', 6, '+', 12]
+        [4, '+', 2, '+', 6, '+', 12]
+        [4, '+', 2, '+', 6, '+', 12]
+        [4, '+', 2, '+', 6, '+', 12]
+    }
 }
 
 mergeNumbersAndOperators = () => {
@@ -154,12 +167,10 @@ mergeNumbersAndOperators = () => {
     const opsList = createAllCombinations(['+','-','*','/']);
     const numbersOpsList = new Array();
 
-    for (let i=0; i < numbersList.length; i++)//forEach
-    {
-        for (let j=0; j < opsList.length; j++)//forEach
-        {
-            numbersOpsList.push( [numbersList[i][0], opsList[j][0], numbersList[i][1], opsList[j][1], numbersList[i][2], opsList[j][2], numbersList[i][3]]);
-        }
-    }
+    numbersList.forEach(numbers => {
+        opsList.forEach(operators => { 
+            numbersOpsList.push( [numbers[0], operators[0], numbers[1], operators[1], numbers[2], operators[2], numbers[3]]);
+        });
+    });
     return numbersOpsList;
 }
