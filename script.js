@@ -145,21 +145,21 @@ let createAllCombinations = (list) =>{
     return result;
 }
 
-let = solveBtn = () =>{ //reaname func name to solveBtnClicked
-    //mergeNumbersAndOperator()
+let = solveBtnClicked = () =>{
+    const numbersOpsList = mergeNumbersAndOperators();
 }
 
-mergeNumbersAndOperators = (numbersArray, opsArray) => {
-    const array1 = findPermutations(numbers);//rename array1
-    const array2 = createAllCombinations(['+','-','*','/']);//rename array2
-    const array3 = new Array();//rename array3
+mergeNumbersAndOperators = () => {
+    const numbersList = findPermutations(numbers);
+    const opsList = createAllCombinations(['+','-','*','/']);
+    const numbersOpsList = new Array();
 
-    for (let i=0; i < array1.length; i++)//forEach
+    for (let i=0; i < numbersList.length; i++)//forEach
     {
-        for (let j=0; j < array2.length; j++)//forEach
+        for (let j=0; j < opsList.length; j++)//forEach
         {
-            array3.push([array1[i][0], array2[j][0], array1[i][1], array2[j][1], array1[i][2], array2[j][2], array1[i][3]]);
+            numbersOpsList.push( numbersList[i][0], opsList[j][0], numbersList[i][1], opsList[j][1], numbersList[i][2], opsList[j][2], numbersList[i][3]]);
         }
     }
-    return array3;
+    return numbersOpsList;
 }
