@@ -158,7 +158,7 @@ mergeNumbersAndOperators = () => {
     {
         for (let j=0; j < opsList.length; j++)//forEach
         {
-            numbersOpsList.push( numbersList[i][0], opsList[j][0], numbersList[i][1], opsList[j][1], numbersList[i][2], opsList[j][2], numbersList[i][3]]);
+            numbersOpsList.push( [numbersList[i][0], opsList[j][0], numbersList[i][1], opsList[j][1], numbersList[i][2], opsList[j][2], numbersList[i][3]]);
         }
     }
     return numbersOpsList;
