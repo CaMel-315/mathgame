@@ -147,20 +147,30 @@ let createAllCombinations = (list) =>{
 
 let = solveBtnClicked = () =>{
     const numbersOpsList = mergeNumbersAndOperators();
-    let result = new Array()
-    numbersOpsList.foreach{
+    bracketsList = (['(','(',')',')',')']);
+    let result = new Array();
+    
+    numbersOpsList.forEach(numbersOps =>{
+        bracketsList.ForEach(brackets =>{
+            result.push(['(', numbersOpsList[0]]);
+
+        });
+    
+    });
+    
         //add bracket method 1 to result;
         //add bracket method 2
         //add bracket method 3
         //add bracket method 4
         //add bracket method 5
-        ['(',4, '+', 2, '+', 6, '+', 12]
-        [4, '+', 2, '+', 6, '+', 12]
-        [4, '+', 2, '+', 6, '+', 12]
-        [4, '+', 2, '+', 6, '+', 12]
-        [4, '+', 2, '+', 6, '+', 12]
-    }
-}
+       // ['(''(',4, '+', 2,')' '+', 6,')' '+', 12]
+       // [4, '+', 2, '+', 6, '+', 12]
+       // [4, '+', 2, '+', 6, '+', 12]
+       // [4, '+', 2, '+', 6, '+', 12]
+       // [4, '+', 2, '+', 6, '+', 12]
+    
+    return result;
+};
 
 mergeNumbersAndOperators = () => {
     const numbersList = findPermutations(numbers);
