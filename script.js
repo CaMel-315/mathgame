@@ -175,7 +175,7 @@ insertBrackets = (numbersOpsList) =>{
 
     numbersOpsList.forEach(numbersOps =>{
         //((AmB)nC)qD
-        let temp = JSON.parse(JSON.stringify(numbersOps));
+        let temp = JSON.parse(JSON.stringify(numbersOps));    
         temp.splice(0,0,'(','(');
         temp.splice(5,0,')');
         temp.splice(8,0,')');
@@ -188,9 +188,30 @@ insertBrackets = (numbersOpsList) =>{
         temp.splice(7,0,')');
         temp.splice(8,0,')');
         result.push(temp);
-        //Am((BnC)qD),
-        //Am(Bn(CqD)),
+       
+        //Am((BnC)qD)
+        temp = JSON.parse(JSON.stringify(numbersOps));
+        temp.splice(2,0,'(');
+        temp.splice(3,0,'(');
+        temp.splice(7,0,')');
+        temp.splice(10,0,')');
+        result.push(temp);
+
+        //Am(Bn(CqD))
+        temp = JSON.parse(JSON.stringify(numbersOps));
+        temp.splice(2,0,'(');
+        temp.splice(5,0,'(');
+        temp.splice(9,0,')');
+        temp.splice(10,0,')');
+        result.push(temp);
+       
         //(AmB)n(CqD)
+        temp = JSON.parse(JSON.stringify(numbersOps));
+        temp.splice(0,0,'(');
+        temp.splice(6,0,'(');
+        temp.splice(4,0,')');
+        temp.splice(10,0,')');
+        result.push(temp);
 
     });
     
