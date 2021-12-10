@@ -146,33 +146,11 @@ let createAllCombinations = (list) =>{
 }
 
 let = solveBtnClicked = () =>{
-    const numbersOpsList = mergeNumbersAndOperators();
-    bracketsList = (['(','(',')',')',')']);
-    let result = new Array();
-    
-    numbersOpsList.forEach(numbersOps =>{
-        bracketsList.ForEach(brackets =>{
-            result.push(['(', numbersOpsList[0]]);
+    const numbersOpsList = createPermutationsAndInsertOperators(numbers);
+    const numbersOpsBrsList = insertBrackets(numbersOpsList);
 
-        });
-    
-    });
-    
-        //add bracket method 1 to result;
-        //add bracket method 2
-        //add bracket method 3
-        //add bracket method 4
-        //add bracket method 5
-       // ['(''(',4, '+', 2,')' '+', 6,')' '+', 12]
-       // [4, '+', 2, '+', 6, '+', 12]
-       // [4, '+', 2, '+', 6, '+', 12]
-       // [4, '+', 2, '+', 6, '+', 12]
-       // [4, '+', 2, '+', 6, '+', 12]
-    
-    return result;
-};
-
-mergeNumbersAndOperators = () => {
+}
+createPermutationsAndInsertOperators = (numbers) => {
     const numbersList = findPermutations(numbers);
     const opsList = createAllCombinations(['+','-','*','/']);
     const numbersOpsList = new Array();
@@ -183,4 +161,39 @@ mergeNumbersAndOperators = () => {
         });
     });
     return numbersOpsList;
+}
+
+convertNumOpsBrsArraysToStrings = (numbersOpsBrsList) =>{
+    let result = new Array();
+    numbersOpsBrsList.forEach(numbersOpsBrs =>{
+        result.push
+    })
+}
+
+insertBrackets = (numbersOpsList) =>{
+    let result = new Array();
+
+    numbersOpsList.forEach(numbersOps =>{
+        //((AmB)nC)qD
+        let temp = JSON.parse(JSON.stringify(numbersOps));
+        temp.splice(0,0,'(','(');
+        temp.splice(5,0,')');
+        temp.splice(8,0,')');
+        result.push(temp);
+
+        //(Am(BnC))qD
+        temp = JSON.parse(JSON.stringify(numbersOps));
+        temp.splice(0,0,'(');
+        temp.splice(4,0,'(');
+        temp.splice(7,0,')');
+        temp.splice(8,0,')');
+        result.push(temp);
+        //Am((BnC)qD),
+        //Am(Bn(CqD)),
+        //(AmB)n(CqD)
+
+    });
+    
+    return result;
+
 }
