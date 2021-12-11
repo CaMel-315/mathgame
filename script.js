@@ -13,7 +13,7 @@ checkGameFinished = () => {
     let numberDivs = document.getElementsByClassName("showBox");
     if(numberDivs.length === 1){
         if(numbers[Number(numberDivs[0].id.substr(3))] === 24){
-            document.getElementById("result").innerHTML = "Win";
+            document.getElementById("result").innerHTML = "A Winrar Is You";
             document.getElementById("container").style.backgroundColor = "green";
 
         }else{
@@ -148,6 +148,7 @@ let createAllCombinations = (list) =>{
 let = solveBtnClicked = () =>{
     const numbersOpsList = createPermutationsAndInsertOperators(numbers);
     const numbersOpsBrsList = insertBrackets(numbersOpsList);
+    const numbersOpsBrsListToStrings = convertNumOpsBrsArraysToStrings(numbersOpsBrsList);
 
 }
 createPermutationsAndInsertOperators = (numbers) => {
@@ -165,9 +166,12 @@ createPermutationsAndInsertOperators = (numbers) => {
 
 convertNumOpsBrsArraysToStrings = (numbersOpsBrsList) =>{
     let result = new Array();
+    
     numbersOpsBrsList.forEach(numbersOpsBrs =>{
-        result.push
-    })
+        let temp = numbersOpsBrs.join("");
+        result.push(temp);
+    });
+    return result;
 }
 
 insertBrackets = (numbersOpsList) =>{
@@ -214,7 +218,6 @@ insertBrackets = (numbersOpsList) =>{
         result.push(temp);
 
     });
-    
     return result;
 
 }
