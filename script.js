@@ -149,8 +149,9 @@ let = solveBtnClicked = () =>{
     const numbersOpsList = createPermutationsAndInsertOperators(numbers);
     const numbersOpsBrsList = insertBrackets(numbersOpsList);
     const numbersOpsBrsListToStrings = convertNumOpsBrsArraysToStrings(numbersOpsBrsList);
-
+    const evaluationResults = evaluateNumbersOpsBrsList(numbersOpsBrsListToStrings);
 }
+
 createPermutationsAndInsertOperators = (numbers) => {
     const numbersList = findPermutations(numbers);
     const opsList = createAllCombinations(['+','-','*','/']);
@@ -164,14 +165,25 @@ createPermutationsAndInsertOperators = (numbers) => {
     return numbersOpsList;
 }
 
+evaluateNumbersOpsBrsList = (numbersOpsBrsListToStrings) => {
+    let evaluationResults = new Array();
+
+
+    numbersOpsBrsListToStrings.forEach(numbersOpsBrsStrings => {
+        let temp = math.evaluate(numbersOpsBrsStrings)
+        evaluationResults.push(temp);
+    });
+    return evaluationResults;
+}
+
 convertNumOpsBrsArraysToStrings = (numbersOpsBrsList) =>{
-    let result = new Array();
-    
+    let numbersOpsBrsListToStrings = new Array();
+
     numbersOpsBrsList.forEach(numbersOpsBrs =>{
         let temp = numbersOpsBrs.join("");
-        result.push(temp);
+        numbersOpsBrsListToStrings.push(temp);
     });
-    return result;
+    return numbersOpsBrsListToStrings;
 }
 
 insertBrackets = (numbersOpsList) =>{
@@ -188,7 +200,7 @@ insertBrackets = (numbersOpsList) =>{
         //(Am(BnC))qD
         temp = JSON.parse(JSON.stringify(numbersOps));
         temp.splice(0,0,'(');
-        temp.splice(4,0,'(');
+        temp.splice(3,0,'(');
         temp.splice(7,0,')');
         temp.splice(8,0,')');
         result.push(temp);
@@ -212,8 +224,8 @@ insertBrackets = (numbersOpsList) =>{
         //(AmB)n(CqD)
         temp = JSON.parse(JSON.stringify(numbersOps));
         temp.splice(0,0,'(');
-        temp.splice(6,0,'(');
         temp.splice(4,0,')');
+        temp.splice(6,0,'(');
         temp.splice(10,0,')');
         result.push(temp);
 
