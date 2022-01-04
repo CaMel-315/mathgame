@@ -150,6 +150,17 @@ let = solveBtnClicked = () =>{
     const numbersOpsBrsList = insertBrackets(numbersOpsList);
     const numbersOpsBrsListToStrings = convertNumOpsBrsArraysToStrings(numbersOpsBrsList);
     const evaluationResults = evaluateNumbersOpsBrsList(numbersOpsBrsListToStrings);
+    const equationOfSolution = findEquationOfSolution(numbersOpsBrsListToStrings, evaluationResults);
+}
+
+
+findEquationOfSolution = (numbersOpsBrsListToStrings, evaluationResults) => {
+
+    let indexOfSolution = evaluationResults.indexOf(24);
+
+    equationOfSolution = numbersOpsBrsListToStrings.at(indexOfSolution)
+
+    return equationOfSolution;
 }
 
 createPermutationsAndInsertOperators = (numbers) => {
