@@ -17,7 +17,7 @@ checkGameFinished = () => {
             document.getElementById("container").style.backgroundColor = "green";
 
         }else{
-            document.getElementById("result").innerHTML = "Lost";
+            document.getElementById("result").innerHTML = "You Lost";
             document.getElementById("container").style.backgroundColor = "red";
         }
     }
@@ -151,6 +151,12 @@ let = solveBtnClicked = () =>{
     const numbersOpsBrsListToStrings = convertNumOpsBrsArraysToStrings(numbersOpsBrsList);
     const evaluationResults = evaluateNumbersOpsBrsList(numbersOpsBrsListToStrings);
     const equationOfSolution = findEquationOfSolution(numbersOpsBrsListToStrings, evaluationResults);
+    const printSolutionInWindow = printSolution();
+
+}
+
+printSolution = () => {
+    document.getElementById("button6").innerHTML = equationOfSolution
 }
 
 
@@ -158,9 +164,10 @@ findEquationOfSolution = (numbersOpsBrsListToStrings, evaluationResults) => {
 
     let indexOfSolution = evaluationResults.indexOf(24);
 
-    equationOfSolution = numbersOpsBrsListToStrings.at(indexOfSolution)
+    equationOfSolution = numbersOpsBrsListToStrings.at(indexOfSolution);
 
     return equationOfSolution;
+
 }
 
 createPermutationsAndInsertOperators = (numbers) => {

@@ -8,7 +8,7 @@
     text-align:center;
     font-size: 40px;
     top: 30%;
-    left: 50%;
+    left:40%;
     transform: translate(-50%, -50%);
 }
 
@@ -41,6 +41,13 @@
     height:60px;
     border:2px solid;
     font-size: 15px;
+}
+
+#result {
+    position: absolute;
+    font-size: 30px;
+    text-align: center;
+    left: 37%;
 }
 
 #box0 {
@@ -106,8 +113,14 @@
 
 #button6 {
     position: absolute;
+    display: inline-block;
+    width:165px;
+    height:60px;
+    border:2px solid;
+    font-size: 20px;
     bottom: 25px;
     left: 120px;
+    line-height: 55px;
 }
 
 #button7 {
