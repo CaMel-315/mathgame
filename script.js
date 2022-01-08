@@ -13,11 +13,11 @@ checkGameFinished = () => {
     let numberDivs = document.getElementsByClassName("showBox");
     if(numberDivs.length === 1){
         if(numbers[Number(numberDivs[0].id.substr(3))] === 24){
-            document.getElementById("result").innerHTML = "A Winrar Is You";
+            //document.getElementById("result").innerHTML = "A Winrar Is You";
             document.getElementById("container").style.backgroundColor = "green";
 
         }else{
-            document.getElementById("result").innerHTML = "You Lost";
+            //document.getElementById("result").innerHTML = "You Lost";
             document.getElementById("container").style.backgroundColor = "red";
         }
     }
@@ -25,11 +25,15 @@ checkGameFinished = () => {
 initialize = () => {
     let x = document.getElementsByClassName("boxes");
 
-    for (let i = 0; i < x.length; i++) {
-        let numberList = SOLVABLES[Math.floor(Math.random() * SOLVABLES.length)].split(' ');
-        x[i].innerHTML = numberList[i];
-        numbers[i] = Number(numberList[i]); 
+     for (let i = 0; i < x.length; i++) {
+        let numberList = Math.floor(Math.random() * (13 - 1 + 1) + 1);
+        x[i].innerHTML = numberList;
+        numbers[i] = Number(numberList); 
+
+        
+        
     }
+
 }
 
 highlight = (target) => {
@@ -150,23 +154,23 @@ let = solveBtnClicked = () =>{
     const numbersOpsBrsList = insertBrackets(numbersOpsList);
     const numbersOpsBrsListToStrings = convertNumOpsBrsArraysToStrings(numbersOpsBrsList);
     const evaluationResults = evaluateNumbersOpsBrsList(numbersOpsBrsListToStrings);
-    const equationOfSolution = findEquationOfSolution(numbersOpsBrsListToStrings, evaluationResults);
-    const printSolutionInWindow = printSolution();
+    const equationOfSolutions = findEquationOfSolutions(evaluationResults);
+    printSolutions(equationOfSolutions);
 
 }
 
-printSolution = () => {
-    document.getElementById("button6").innerHTML = equationOfSolution
+printSolutions = (equationOfSolutions) => {
+    equationOfSolutions.forEach( solution =>{
+        document.getElementById("solutions").innerHTML += solution[0]+ "<br/>";
+    })
 }
 
 
-findEquationOfSolution = (numbersOpsBrsListToStrings, evaluationResults) => {
+findEquationOfSolutions = (evaluationResults) => {
 
-    let indexOfSolution = evaluationResults.indexOf(24);
+    let solutions = evaluationResults.filter(evaluationResult => evaluationResult[1] === 24);
 
-    equationOfSolution = numbersOpsBrsListToStrings.at(indexOfSolution);
-
-    return equationOfSolution;
+    return solutions;
 
 }
 
@@ -188,8 +192,8 @@ evaluateNumbersOpsBrsList = (numbersOpsBrsListToStrings) => {
 
 
     numbersOpsBrsListToStrings.forEach(numbersOpsBrsStrings => {
-        let temp = math.evaluate(numbersOpsBrsStrings)
-        evaluationResults.push(temp);
+        let temp = math.evaluate(numbersOpsBrsStrings);
+        evaluationResults.push([numbersOpsBrsStrings,temp]);
     });
     return evaluationResults;
 }
