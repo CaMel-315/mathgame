@@ -1,6 +1,7 @@
 let firstNumberDiv;
 let chosenOperationDiv;
 let numbers = new Array();
+let solutions;
 
 const OPERATION = {
     ADD : "add",
@@ -13,27 +14,14 @@ checkGameFinished = () => {
     let numberDivs = document.getElementsByClassName("showBox");
     if(numberDivs.length === 1){
         if(numbers[Number(numberDivs[0].id.substr(3))] === 24){
-            //document.getElementById("result").innerHTML = "A Winrar Is You";
+            document.getElementById("button6").innerHTML = "You Won";
             document.getElementById("container").style.backgroundColor = "green";
 
         }else{
-            //document.getElementById("result").innerHTML = "You Lost";
+            document.getElementById("button6").innerHTML = "You Lost";
             document.getElementById("container").style.backgroundColor = "red";
         }
     }
-}
-initialize = () => {
-    let x = document.getElementsByClassName("boxes");
-
-     for (let i = 0; i < x.length; i++) {
-        let numberList = Math.floor(Math.random() * (13 - 1 + 1) + 1);
-        x[i].innerHTML = numberList;
-        numbers[i] = Number(numberList); 
-
-        
-        
-    }
-
 }
 
 highlight = (target) => {
@@ -134,7 +122,6 @@ let findPermutations = (list) => {
     return permutationsArray;
 }
 
-
 let createAllCombinations = (list) =>{
     let result = new Array();
 
@@ -149,28 +136,43 @@ let createAllCombinations = (list) =>{
     return result;
 }
 
-let = solveBtnClicked = () =>{
-    const numbersOpsList = createPermutationsAndInsertOperators(numbers);
-    const numbersOpsBrsList = insertBrackets(numbersOpsList);
-    const numbersOpsBrsListToStrings = convertNumOpsBrsArraysToStrings(numbersOpsBrsList);
-    const evaluationResults = evaluateNumbersOpsBrsList(numbersOpsBrsListToStrings);
-    const equationOfSolutions = findEquationOfSolutions(evaluationResults);
-    printSolutions(equationOfSolutions);
+let = initialize = () =>{
+    let x = document.getElementsByClassName("boxes");
+    
+    let equationOfSolutions;
+    
+    do{
 
+     for (let i = 0; i < x.length; i++) {
+        let numberList = Math.floor(Math.random() * (13 - 1 + 1) + 1);
+        x[i].innerHTML = numberList;
+        numbers[i] = Number(numberList);
+        }
+
+    let numbersOpsList = createPermutationsAndInsertOperators(numbers);
+    let numbersOpsBrsList = insertBrackets(numbersOpsList);
+    let numbersOpsBrsListToStrings = convertNumOpsBrsArraysToStrings(numbersOpsBrsList);
+    let evaluationResults = evaluateNumbersOpsBrsList(numbersOpsBrsListToStrings);
+    equationOfSolutions = findEquationOfSolutions(evaluationResults);
+
+    }while(equationOfSolutions.length < 1);
+
+    solutions = equationOfSolutions;
+
+    console.log("Solutions stored at initialization: " + solutions);
 }
 
-printSolutions = (equationOfSolutions) => {
-    equationOfSolutions.forEach( solution =>{
+printSolutions = () => {
+    solutions.forEach( solution =>{
         document.getElementById("solutions").innerHTML += solution[0]+ "<br/>";
     })
 }
 
-
 findEquationOfSolutions = (evaluationResults) => {
 
-    let solutions = evaluationResults.filter(evaluationResult => evaluationResult[1] === 24);
+    let solutionsArray = evaluationResults.filter(evaluationResult => evaluationResult[1] === 24);
 
-    return solutions;
+    return solutionsArray;
 
 }
 
@@ -178,7 +180,7 @@ createPermutationsAndInsertOperators = (numbers) => {
     const numbersList = findPermutations(numbers);
     const opsList = createAllCombinations(['+','-','*','/']);
     const numbersOpsList = new Array();
-
+    
     numbersList.forEach(numbers => {
         opsList.forEach(operators => { 
             numbersOpsList.push( [numbers[0], operators[0], numbers[1], operators[1], numbers[2], operators[2], numbers[3]]);
@@ -190,8 +192,7 @@ createPermutationsAndInsertOperators = (numbers) => {
 evaluateNumbersOpsBrsList = (numbersOpsBrsListToStrings) => {
     let evaluationResults = new Array();
 
-
-    numbersOpsBrsListToStrings.forEach(numbersOpsBrsStrings => {
+     numbersOpsBrsListToStrings.forEach(numbersOpsBrsStrings => {
         let temp = math.evaluate(numbersOpsBrsStrings);
         evaluationResults.push([numbersOpsBrsStrings,temp]);
     });
@@ -254,4 +255,9 @@ insertBrackets = (numbersOpsList) =>{
     });
     return result;
 
+}
+
+reloadPage = () =>{
+location.reload();
+return false;
 }

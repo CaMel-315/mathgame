@@ -2,7 +2,6 @@
 <html>
     <head>
         <link rel="stylesheet" type="text/css" href="style.css" />
-        <!--<script type="text/javascript" src="SOLVABLES.js"></script>-->
         <script type="text/javascript" src="math.js"></script>
         <script type="text/javascript" src="script.js"></script>
     </head>
@@ -18,10 +17,10 @@
             <div id="multiply" onclick="operationClicked(this)"; class="buttons"><p>x</p></div>
             <div id="divide" onclick="operationClicked(this)"; class="buttons"><p>/</p></div>
           
-            <div id="button5" onclick="initialize()" class="buttons">SKIP</div> 
-            
-            <div id="button8" onclick="solveBtnClicked()" class="buttons">Solve</div>
+            <div id="button5" onclick="reloadPage()" class="buttons">New Game</div> 
+            <div id="button6" class="buttons"></div>
+            <div id="button8" onclick="printSolutions()" class="buttons">Solve</div>
         </div>
-        <p id="solutions"></p>
+        <p id="solutions">Solutions:<br/></p>
     </body>
 </html>

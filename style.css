@@ -1,3 +1,9 @@
+html {
+    min-width: 1000px;
+    min-height: 1000px;
+    background-color: lightgray;
+}
+
 #container {
     position: absolute;
     border-width: 3px;
@@ -8,8 +14,9 @@
     text-align:center;
     font-size: 40px;
     top: 30%;
-    left:40%;
+    left:50%;
     transform: translate(-50%, -50%);
+    background-color:rgb(167, 167, 167);
 }
 
 .boxes {
@@ -43,13 +50,14 @@
     font-size: 15px;
 }
 
-#result {
-    position: absolute;
-    font-size: 30px;
-    text-align: center;
-    left: 50%;
-    
-    
+#solutions {
+    position: sticky;
+    font-size: 25px;
+    left: 60%;
+    top: 150px;
+    margin-left: 70%;
+    margin-top: 5%;
+    min-width: 550px;
 }
 
 #box0 {
