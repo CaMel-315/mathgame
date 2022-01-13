@@ -10,18 +10,24 @@ const OPERATION = {
     DIVIDE : "divide"
 }; 
 
-checkGameFinished = () => {
-    let numberDivs = document.getElementsByClassName("showBox");
-    if(numberDivs.length === 1){
-        if(numbers[Number(numberDivs[0].id.substr(3))] === 24){
-            document.getElementById("button6").innerHTML = "You Won";
-            document.getElementById("container").style.backgroundColor = "green";
-
-        }else{
-            document.getElementById("button6").innerHTML = "You Lost";
-            document.getElementById("container").style.backgroundColor = "red";
+initialize = () =>{
+    let numberDivs = document.getElementsByClassName("boxes");
+    
+    let equationOfSolutions;
+    //let start = Date.now();
+    do{
+        for (let i = 0; i < numberDivs.length; i++) {
+            let numberList = Math.floor(Math.random() * 13 + 1);
+            numberDivs[i].innerHTML = numberList;
+            numbers[i] = Number(numberList);
         }
-    }
+        equationOfSolutions = findSolutions(numbers);
+    }while(equationOfSolutions.length < 1);
+
+    solutions = equationOfSolutions;
+
+    //let end = Date.now();
+    //console.log((end - start)/1000);
 }
 
 highlight = (target) => {
@@ -93,171 +99,27 @@ operationClicked = (target) => {
     chosenOperationDiv = target;
 }
 
-let findPermutations = (list) => {
-    if (list.length < 2 ){
-        return list;
-    }
-    
-    let permutationsArray = [];
-
-    for (let i = 0; i < list.length; i++){
-        let char = list[i];
-        if (list.indexOf(char) != i){
-            continue;
-        }
-            
-    let remainingChars = list.slice(0, i).concat(list.slice(i + 1, list.length));
-    
-    for (let permutation of findPermutations(remainingChars)){
-        let array = new Array();
-        array.push(char);
-        if( typeof permutation === 'number'){
-            array.push(permutation);
-        }else{
-            array.push.apply(array, permutation);
-        }
-        permutationsArray.push(array);
-      }
-    }
-    return permutationsArray;
-}
-
-let createAllCombinations = (list) =>{
-    let result = new Array();
-
-    list.forEach(operation1 =>{
-        list.forEach(operation2 =>{
-            list.forEach(operation3 =>{
-                result.push([operation1,operation2,operation3]);
-            });
-        });
-    });
-
-    return result;
-}
-
-let = initialize = () =>{
-    let x = document.getElementsByClassName("boxes");
-    
-    let equationOfSolutions;
-    
-    do{
-
-     for (let i = 0; i < x.length; i++) {
-        let numberList = Math.floor(Math.random() * (13 - 1 + 1) + 1);
-        x[i].innerHTML = numberList;
-        numbers[i] = Number(numberList);
-        }
-
-    let numbersOpsList = createPermutationsAndInsertOperators(numbers);
-    let numbersOpsBrsList = insertBrackets(numbersOpsList);
-    let numbersOpsBrsListToStrings = convertNumOpsBrsArraysToStrings(numbersOpsBrsList);
-    let evaluationResults = evaluateNumbersOpsBrsList(numbersOpsBrsListToStrings);
-    equationOfSolutions = findEquationOfSolutions(evaluationResults);
-
-    }while(equationOfSolutions.length < 1);
-
-    solutions = equationOfSolutions;
-
-    console.log("Solutions stored at initialization: " + solutions);
-}
-
 printSolutions = () => {
-    solutions.forEach( solution =>{
+    solutions.slice(0, 5).forEach( solution =>{
         document.getElementById("solutions").innerHTML += solution[0]+ "<br/>";
     })
 }
 
-findEquationOfSolutions = (evaluationResults) => {
-
-    let solutionsArray = evaluationResults.filter(evaluationResult => evaluationResult[1] === 24);
-
-    return solutionsArray;
-
-}
-
-createPermutationsAndInsertOperators = (numbers) => {
-    const numbersList = findPermutations(numbers);
-    const opsList = createAllCombinations(['+','-','*','/']);
-    const numbersOpsList = new Array();
-    
-    numbersList.forEach(numbers => {
-        opsList.forEach(operators => { 
-            numbersOpsList.push( [numbers[0], operators[0], numbers[1], operators[1], numbers[2], operators[2], numbers[3]]);
-        });
-    });
-    return numbersOpsList;
-}
-
-evaluateNumbersOpsBrsList = (numbersOpsBrsListToStrings) => {
-    let evaluationResults = new Array();
-
-     numbersOpsBrsListToStrings.forEach(numbersOpsBrsStrings => {
-        let temp = math.evaluate(numbersOpsBrsStrings);
-        evaluationResults.push([numbersOpsBrsStrings,temp]);
-    });
-    return evaluationResults;
-}
-
-convertNumOpsBrsArraysToStrings = (numbersOpsBrsList) =>{
-    let numbersOpsBrsListToStrings = new Array();
-
-    numbersOpsBrsList.forEach(numbersOpsBrs =>{
-        let temp = numbersOpsBrs.join("");
-        numbersOpsBrsListToStrings.push(temp);
-    });
-    return numbersOpsBrsListToStrings;
-}
-
-insertBrackets = (numbersOpsList) =>{
-    let result = new Array();
-
-    numbersOpsList.forEach(numbersOps =>{
-        //((AmB)nC)qD
-        let temp = JSON.parse(JSON.stringify(numbersOps));    
-        temp.splice(0,0,'(','(');
-        temp.splice(5,0,')');
-        temp.splice(8,0,')');
-        result.push(temp);
-
-        //(Am(BnC))qD
-        temp = JSON.parse(JSON.stringify(numbersOps));
-        temp.splice(0,0,'(');
-        temp.splice(3,0,'(');
-        temp.splice(7,0,')');
-        temp.splice(8,0,')');
-        result.push(temp);
-       
-        //Am((BnC)qD)
-        temp = JSON.parse(JSON.stringify(numbersOps));
-        temp.splice(2,0,'(');
-        temp.splice(3,0,'(');
-        temp.splice(7,0,')');
-        temp.splice(10,0,')');
-        result.push(temp);
-
-        //Am(Bn(CqD))
-        temp = JSON.parse(JSON.stringify(numbersOps));
-        temp.splice(2,0,'(');
-        temp.splice(5,0,'(');
-        temp.splice(9,0,')');
-        temp.splice(10,0,')');
-        result.push(temp);
-       
-        //(AmB)n(CqD)
-        temp = JSON.parse(JSON.stringify(numbersOps));
-        temp.splice(0,0,'(');
-        temp.splice(4,0,')');
-        temp.splice(6,0,'(');
-        temp.splice(10,0,')');
-        result.push(temp);
-
-    });
-    return result;
-
-}
-
 reloadPage = () =>{
-location.reload();
-return false;
+    location.reload();
+    return false;
+}
+
+checkGameFinished = () => {
+    let numberDivs = document.getElementsByClassName("showBox");
+    if(numberDivs.length === 1){
+        if(numbers[Number(numberDivs[0].id.substr(3))] === 24){
+            document.getElementById("button6").innerHTML = "You Won";
+            document.getElementById("container").style.backgroundColor = "green";
+
+        }else{
+            document.getElementById("button6").innerHTML = "You Lost";
+            document.getElementById("container").style.backgroundColor = "red";
+        }
+    }
 }

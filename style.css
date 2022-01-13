@@ -14,7 +14,7 @@ html {
     text-align:center;
     font-size: 40px;
     top: 30%;
-    left:50%;
+    left:55%;
     transform: translate(-50%, -50%);
     background-color:rgb(167, 167, 167);
 }
@@ -54,9 +54,9 @@ html {
     position: sticky;
     font-size: 25px;
     left: 60%;
-    top: 150px;
-    margin-left: 70%;
-    margin-top: 5%;
+    top: 500px;
+    margin-left: 75%;
+    margin-top: 6%;
     min-width: 550px;
 }
 
