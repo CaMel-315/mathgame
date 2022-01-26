@@ -1,6 +1,22 @@
+@viewport {
+    width: device-width ;
+    zoom: 1.0 ;
+  }
+/*@media (max-width:390px) {
+    #solutions {
+        position: fixed;
+        font-size: 50px;
+        left: 55%;
+        top: 480px;
+        margin-left: 20%;
+        margin-top: 90%;
+       
+    }
+}*/
+
 html {
-    min-width: 1000px;
-    min-height: 1000px;
+    min-width: 390px;
+    min-height: 700px;
     background-color: lightgray;
 }
 
