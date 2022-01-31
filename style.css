@@ -1,172 +1,160 @@
 @viewport {
-    width: device-width ;
-    zoom: 1.0 ;
-  }
-/*@media (max-width:390px) {
-    #solutions {
-        position: fixed;
-        font-size: 50px;
-        left: 55%;
-        top: 480px;
-        margin-left: 20%;
-        margin-top: 90%;
-       
-    }
-}*/
+  width: device-width;
+  zoom: 1;
+}
 
 html {
-    min-width: 390px;
-    min-height: 700px;
-    background-color: lightgray;
+  min-width: 390px;
+  min-height: 700px;
+  background-color: lightgray;
 }
 
 #container {
-    position: absolute;
-    border-width: 3px;
-	border-style: solid;
-	width: 410px;
-    height: 480px;
-    margin-top: 85px;
-    text-align:center;
-    font-size: 40px;
-    top: 30%;
-    left:50%;
-    transform: translate(-50%, -50%);
-    background-color:rgb(167, 167, 167);
+  position: absolute;
+  border-width: 3px;
+  border-style: solid;
+  width: 410px;
+  height: 480px;
+  margin-top: 85px;
+  text-align: center;
+  font-size: 40px;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgb(167, 167, 167);
 }
 
 .boxes {
-    display: block;
-    width:120px;
-    height:80px;
-    margin:20px;
-    padding-top: 30px;
-    float: left;
-    border: 1px solid;
+  display: block;
+  width: 120px;
+  height: 80px;
+  margin: 20px;
+  padding-top: 30px;
+  float: left;
+  border: 1px solid;
 }
 
-.showBox{
-    display: block;
+.showBox {
+  display: block;
 }
 
-.hideBox{
-    display: none;
+.hideBox {
+  display: none;
 }
 
-.highlight{
-    border: "5px solid green";
+.highlight {
+  border: "5px solid green";
 }
 
 .buttons {
-    position: absolute;
-    display: inline-block;
-    width:75px;
-    height:60px;
-    border:2px solid;
-    font-size: 15px;
+  position: absolute;
+  display: inline-block;
+  width: 75px;
+  height: 60px;
+  border: 2px solid;
+  font-size: 15px;
 }
 
-#instructions{
-    position: absolute;
-    font-size: 20px;
-    margin-left: -5%;
-    margin-top: -15%;
+#instructions {
+  position: absolute;
+  font-size: 20px;
+  margin-left: -5%;
+  margin-top: -15%;
 }
 
 #solutions {
-    position: sticky;
-    font-size: 25px;
-    left: 55%;
-    top: 480px;
-    margin-left: 36%;
-    margin-top: 585px;
-    min-width: 550px;
+  position: sticky;
+  font-size: 25px;
+  left: 55%;
+  top: 480px;
+  margin-left: 36%;
+  margin-top: 585px;
+  min-width: 550px;
 }
 
 #box0 {
-    position: absolute;
-    left: 35px;
+  position: absolute;
+  left: 35px;
 }
 
 #box1 {
-    position: absolute;
-    right: 35px;
+  position: absolute;
+  right: 35px;
 }
 
 #box2 {
-    position: absolute;
-    top: 145px;
-    left: 35px;
+  position: absolute;
+  top: 145px;
+  left: 35px;
 }
 
 #box3 {
-    position: absolute;
-    top: 145px;
-    right: 35px;
+  position: absolute;
+  top: 145px;
+  right: 35px;
 }
 
 #add {
-    position: absolute;
-    bottom: 100px;
-    left: 30px;
-    font-size: 30px;
-    line-height: 0px;
+  position: absolute;
+  bottom: 100px;
+  left: 30px;
+  font-size: 30px;
+  line-height: 0px;
 }
 
 #subtract {
-    position: absolute;
-    bottom: 100px;
-    left: 120px;
-    font-size: 30px;
-    line-height: 0px;
+  position: absolute;
+  bottom: 100px;
+  left: 120px;
+  font-size: 30px;
+  line-height: 0px;
 }
 
 #multiply {
-    position: absolute;
-    bottom: 100px;
-    left: 210px;
-    font-size: 30px;
-    line-height: 0px;
+  position: absolute;
+  bottom: 100px;
+  left: 210px;
+  font-size: 30px;
+  line-height: 0px;
 }
 
 #divide {
-    position: absolute;
-    bottom: 100px;
-    left: 300px;
-    font-size: 30px;
-    line-height: 0px;
+  position: absolute;
+  bottom: 100px;
+  left: 300px;
+  font-size: 30px;
+  line-height: 0px;
 }
 
 #button5 {
-    position: absolute;
-    bottom: 25px;
-    left: 30px;
-    line-height: 60px;
+  position: absolute;
+  bottom: 25px;
+  left: 30px;
+  line-height: 60px;
 }
 
 #button6 {
-    position: absolute;
-    display: inline-block;
-    width:165px;
-    height:60px;
-    border: none;
-    font-size: 20px;
-    bottom: 25px;
-    left: 120px;
-    line-height: 55px;
+  position: absolute;
+  display: inline-block;
+  width: 165px;
+  height: 60px;
+  border: none;
+  font-size: 20px;
+  bottom: 25px;
+  left: 120px;
+  line-height: 55px;
 }
 
 #button7 {
-    position: absolute;
-    bottom: 25px;
-    left: 210px;
+  position: absolute;
+  bottom: 25px;
+  left: 210px;
 }
 
 #button8 {
-    position: absolute;
-    bottom: 25px;
-    left: 300px;
-    font-size: 18px;
-    line-height: 55px;
+  position: absolute;
+  bottom: 25px;
+  left: 300px;
+  font-size: 18px;
+  line-height: 55px;
 }
-
