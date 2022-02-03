@@ -6,7 +6,7 @@
 html {
   min-width: 390px;
   min-height: 700px;
-  background-color: lightgray;
+  background-color: rgb(156, 154, 154);
 }
 
 #container {
@@ -17,7 +17,7 @@ html {
   height: 480px;
   margin-top: 85px;
   text-align: center;
-  font-size: 40px;
+  font: 40px Arial, sans-serif;
   top: 30%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -30,6 +30,7 @@ html {
   height: 80px;
   margin: 20px;
   padding-top: 30px;
+  box-shadow: 1px 5px 8px #888888;
   float: left;
   border: 1px solid;
 }
@@ -53,18 +54,20 @@ html {
   height: 60px;
   border: 2px solid;
   font-size: 15px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 
 #instructions {
   position: absolute;
   font-size: 20px;
-  margin-left: -5%;
-  margin-top: -15%;
+  margin-left: 6%;
+  margin-top: -10%;
 }
 
 #solutions {
   position: sticky;
-  font-size: 25px;
+  font: 25px Arial, sans-serif;
   left: 55%;
   top: 480px;
   margin-left: 36%;
@@ -130,7 +133,7 @@ html {
   position: absolute;
   bottom: 25px;
   left: 30px;
-  line-height: 60px;
+  line-height: 25px;
 }
 
 #button6 {
