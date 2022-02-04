@@ -6,13 +6,14 @@
 html {
   min-width: 390px;
   min-height: 700px;
-  background-color: rgb(156, 154, 154);
+  background-color: rgb(153, 154, 167);
 }
 
 #container {
   position: absolute;
   border-width: 3px;
   border-style: solid;
+  border-radius: 5px;
   width: 410px;
   height: 480px;
   margin-top: 90px;
@@ -21,7 +22,7 @@ html {
   top: 30%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: rgb(167, 167, 167);
+  background-color: rgb(136, 137, 143);
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
     rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
     rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
@@ -33,6 +34,7 @@ html {
   height: 80px;
   margin: 20px;
   padding-top: 25px;
+  border-radius: 5px;
   box-shadow: rgba(61, 61, 85, 0.25) 0px 50px 100px -20px,
     rgba(56, 56, 56, 0.3) 0px 30px 60px -30px,
     rgba(74, 74, 75, 0.35) 0px -2px 6px 0px inset;
@@ -59,8 +61,10 @@ html {
   height: 60px;
   border: 2px solid;
   font-size: 15px;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
-    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  border-radius: 3px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
 
 #instructions {
