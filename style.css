@@ -212,10 +212,17 @@ html {
   width: 165px;
   height: 60px;
   border: none;
+  cursor: pointer;
   font-size: 20px;
   bottom: 25px;
   left: 120px;
   line-height: 55px;
+}
+
+#button6 {
+  pointer-events: none;
+  cursor: pointer !important;
+  text-decoration: None !important;
 }
 
 #button7 {
