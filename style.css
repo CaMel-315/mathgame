@@ -47,7 +47,7 @@ html {
 
 .boxes:hover {
   transition-duration: 0.1s;
-  background-color: #838383;
+  background-color: #bbbaba;
 }
 
 .boxes:after {
@@ -104,7 +104,7 @@ html {
 
 .buttons:hover {
   transition-duration: 0.1s;
-  background-color: #838383;
+  background-color: #bbbaba;
 }
 
 .buttons:after {
