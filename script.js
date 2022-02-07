@@ -114,12 +114,16 @@ checkGameFinished = () => {
     let numberDivs = document.getElementsByClassName("showBox");
     if(numberDivs.length === 1){
         if(numbers[Number(numberDivs[0].id.substr(3))] === 24){
-            document.getElementById("button6").innerHTML = "You Won";
+            document.getElementById("button6").innerHTML = "You Won!";
             document.getElementById("container").style.backgroundColor = "green";
+            document.getElementById("button5").style.animation="spin 5s";
+            
 
         }else{
             document.getElementById("button6").innerHTML = "You Lost";
             document.getElementById("container").style.backgroundColor = "red";
+            document.getElementById("button5").style.animation="spin 5s";
+            
         }
     }
 }
